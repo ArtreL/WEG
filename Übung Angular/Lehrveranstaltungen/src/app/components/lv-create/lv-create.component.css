@@ -1,0 +1,17 @@
+/* ANLEGEN STYLE */
+.formtitle{
+	text-align: right;
+}
+.errorMsg{
+	color: red;
+}
+input{
+	display: block;
+}
+mat-card{
+	margin: 20px;
+}
+mat-form-field{
+	width: 30%;
+	margin: 20px;
+}

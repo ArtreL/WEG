@@ -1,0 +1,57 @@
+<h3 align="center">Detail</h3>
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="container col-xs-offset-3 col-xs-6 col-sm-offset-4 col-sm-4 col-md-offset-5 col-md-2 col-lg-offset-5 col-lg-2" id="lvdropdown">
+      <div class="btn-group dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+          Lehrveranstaltungen
+        </button>
+        <div class="dropdown-menu">
+          <a class="plsnoastyle dropdown-item" *ngFor="let lv of ListOfLVs$ | async" [routerLink]="['/details', lv.id]">{{lv.abbreviation}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="mt-5 mb-4" *ngIf="currLV$ | async as lv">{{lv.fullname}}</h1>
+      <h1 class="mt-5 mb-4" *ngIf="!currLV$ | async as lv">Fehler: LV nicht gefunden!</h1>
+    </div>
+  </div>
+  <div class="row" *ngIf="currLV$ | async as lv">
+    <div class="col-lg-6 offset-lg-3">
+      <table class="table table-bordered width-auto mx-auto">
+        <tbody>
+          <tr>
+            <td>Kürzel</td>
+            <td>{{lv.abbreviation}}</td>
+          </tr>
+          <tr>
+            <td>Lektor</td>
+            <td>{{lv.lector}}</td>
+          </tr>
+          <tr>
+            <td>ECTS</td>
+            <td>{{lv.ects}}</td>
+          </tr>
+          <tr>
+            <td>Prüfungstermin</td>
+            <td>{{lv.exam}}</td>
+          </tr>
+          <tr>
+            <td>Moodle Link</td>
+            <td><a href="https://moodle.technikum-wien.at/course/view.php?id={{lv.moodle}}">{{lv.abbreviation}} Moodle</a></td>
+          </tr>
+          <tr>
+            <td>Ersteller</td>
+            <td>{{lv.userName}}</td>
+          </tr>
+          <tr>
+            <td>E-Mail</td>
+            <td>{{lv.userEmail}}</td>
+          </tr>
+      </table>
+    </div>
+  </div>
+</div>

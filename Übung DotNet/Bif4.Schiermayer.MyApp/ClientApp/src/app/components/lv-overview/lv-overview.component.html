@@ -1,0 +1,20 @@
+<h3 align="center">Übersicht</h3>
+<app-navbar></app-navbar>
+<div class="container" id="overview">
+  <table class="table">
+    <thead>
+      <th>Delete</th>
+      <th>Kürzel</th>
+      <th>Name</th>
+      <th>Lektor</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lv of ListOfLVs$ | async">
+        <td class="align-middle"><button mat-raised-button class="btn btn-primary delButton" (click)="removeLV(lv)">X</button></td>
+        <td class="align-middle">{{lv.abbreviation}}</td>
+        <td class="align-middle"><a [routerLink]="['/details', lv.id]">{{lv.fullname}}</a></td>
+        <td class="align-middle">{{lv.lector}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

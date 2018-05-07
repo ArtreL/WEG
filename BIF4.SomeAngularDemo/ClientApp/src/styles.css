@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+.app-container {
+  padding-top: 54px;
+}
+@media (min-width: 992px) {
+  .app-container {
+      padding-top: 56px;
+  }
+}
+.width-auto {
+  width: auto !important;
+}

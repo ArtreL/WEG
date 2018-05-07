@@ -1,0 +1,11 @@
+/* DETAILS STYLE */
+#lvdropdown{
+	margin-top: 15px;
+}
+.dropdown-item{
+	background: darkgray;
+}
+.plsnoastyle{
+	color: black !important;
+	text-align: center;
+}

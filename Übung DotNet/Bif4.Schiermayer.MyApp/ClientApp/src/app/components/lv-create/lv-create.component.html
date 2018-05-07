@@ -1,0 +1,47 @@
+<h3 align="center">Neue LV Anlegen</h3>
+<app-navbar></app-navbar>
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Neue LV Anlegen</mat-card-title>
+    </mat-card-header>
+    <div *ngIf="isLoggedIn">
+      <form [formGroup]="newLvForm" (ngSubmit)="submit(); resetForm()">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" name="1" formControlName="fullname"/>
+            <mat-error>Der Name muss mindestens 5 Zeichen lang sein.</mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Kürzel" name="2" formControlName="abbreviation"/>
+            <mat-error>Das Kürzel darf maximal 5 Zeichen lang sein.</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Lektor" name="3" formControlName="lector"/>
+            <mat-error>Der Name des Lektors muss mindestens 10 Zeichen lang sein.</mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="ECTS" name="4" formControlName="ects"/>
+            <mat-error>Die ECTS müssen eine Zahl zwischen 0.5 und 3 sein.</mat-error>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width">
+            <input matInput [matDatepicker]="picker" placeholder="Prüfung" name="5" formControlName="exam">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Moodle" name="6" formControlName="moodle"/>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="submit()" type="reset" [disabled]="newLvForm.invalid">Neu Anlegen</button>
+        </mat-card-actions>
+      </form>
+    </div>
+    <div *ngIf="!isLoggedIn">
+      <h4>Sie müssen eingeloggt sein um LVs erstellen zu können.</h4>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,14 @@
+<table class="table">
+  <thead>
+      <th>Kürzel</th>
+      <th>Name</th>
+      <th>Lektor</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lv of ListOfLVs">
+        <td>{{lv.abbreviation}}</td>
+        <td><a [routerLink]="['/details', lv.id]">{{lv.fullname}}</a></td>
+        <td>{{lv.lector}}</td>
+    </tr>
+  </tbody>
+</table>
